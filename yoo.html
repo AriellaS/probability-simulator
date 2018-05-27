@@ -15,28 +15,26 @@
 
 			<h1>Discrete Probability Simulator</h1>
 
-			<div class="outer">
-				<table id="values">
-					<tr>
-						<th>x</th>
-						<th>P(x)</th>
-					</tr>
-					<tr>
-						<td>
-							<input type="text" class="x" id="last" />
-						</td>
-						<td>
-							<input type="text" class="y" />
-						</td>
-					</tr>
-				</table>
-			</div>
+            <table id="values" align="center">
+                <tr>
+                    <th>x</th>
+                    <th>P(x)</th>
+                </tr>
+                <tr id="last">
+                    <td>
+                        <input type="text" class="x" />
+                    </td>
+                    <td>
+                        <input type="text" class="y" />
+                    </td>
+                </tr>
+            </table>
 
 			<div>
 				<input type="text" placeholder="Sample size" id="sample">
 			</div>
 			<div class="button">
-				<input type="button" value="Done" id="btn">
+				<input type="button" value="Simulate!" id="btn">
 			</div>
 
             <p id="error"></p>
@@ -45,17 +43,15 @@
 
                 <h2>Results</h2>
 
-                <div class="outer">
-                    <table id="frequencies">
-                        <tr>
-                            <th>x</th>
-                            <th>frequeny</th>
-                        </tr>
-                    </table>
+                <table id="frequencies" align="center" border=1 cellpadding="5">
+                    <tr>
+                        <th>x</th>
+                        <th>Frequency</th>
+                    </tr>
+                </table>
 
-                    <p>Mean value:</p>
-                    <p id="mean"></p>
-                </div>
+                <p>Mean value:</p>
+                <p id="mean"></p>
 
             </div>
 

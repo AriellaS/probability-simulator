@@ -79,12 +79,12 @@ function calculate() {
 
 $(function() {
 
-    $(document).on("input", "#last", function() {
+    $(document).on("input", "#last input", function() {
         $("#last").attr("id", "");
         $("#values").append(
-            `<tr>
+            `<tr id="last">
 				<td>
-					<input type="text" class="x" id="last" />
+					<input type="text" class="x" />
 				</td>
 				<td>
 					<input type="text" class="y" />
