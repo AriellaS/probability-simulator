@@ -1,8 +1,16 @@
+let error = (message) => {
+    $("#error").text(message);
+}
+
+let displayMean = (mean) => {
+    $("#mean").text(mean);
+}
+
 $(function() {
 
     $(document).on("input", "#last", function() {
         $("#last").attr("id", "");
-        $(".tbl").append(
+        $("#values").append(
             `<tr>
 				<td>
 					<input type="text" class="x" id="last" />
@@ -16,7 +24,8 @@ $(function() {
 
     $(document).on("click", "#btn", function()  {
 
-        $("#error").remove();
+        error("");
+        $(".results").css("display:none;");
 
         let probabilities = [];
         let sum = 0;
@@ -32,34 +41,51 @@ $(function() {
                     multiplier *= 10
                     y *= multiplier;
                 }
+            } else {
+                // error("Make sure your P(x) values are positive numbers.");
             }
         });
 
         if (sum != 1) {
-            $(".container").append(
-                `<p style="color:red" id="error">Make sure your P(x) values add up to 1</p>`
-            )
-            return;
+            error("Make sure your P(x) values add up to 1");
         }
 
         probabilities = probabilities.map(p => p * multiplier);
 
         let bag = [];
+        let sample = {};
         $(".x").each(function(i) {
-            let x = $(this).val();
-            if (x.length > 0) {
+            let x = Number.parseInt($(this).val());
+            if (!isNaN(x)) {
+                sample[x] = 0;
                 for (let j = 0; j < probabilities[i]; j++) {
                     bag.push(x);
                 }
+            } else {
+                // error("Make sure your x values are numbers");
             }
         });
 
-        let sample = [];
+        let mean = 0;
         let sampleSize = Number.parseInt($("#sample").val());
         for (let i = 0; i < sampleSize; i++) {
-            sample.push(bag[Math.floor(Math.random() * (multiplier))]);
+            let chosen = bag[Math.floor(Math.random() * multiplier)];
+            mean += chosen;
+            sample[chosen]++;
         }
-        console.log(sample);
+        mean /= sampleSize;
+
+        $.each(sample, function(x, freq) {
+            $("#frequencies").append(
+                `<tr>
+                    <td>${x}</td>
+                    <td>${freq}</td>
+                </tr>`
+            );
+        });
+        displayMean(mean)
+
+        $(".results").css("display" , "block");
 
     });
 

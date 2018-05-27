@@ -15,8 +15,8 @@
 
 			<h1>Discrete Probability Simulator</h1>
 
-			<div class="values">
-				<table class="tbl">
+			<div class="outer">
+				<table id="values">
 					<tr>
 						<th>x</th>
 						<th>P(x)</th>
@@ -38,6 +38,26 @@
 			<div class="button">
 				<input type="button" value="Done" id="btn">
 			</div>
+
+            <p id="error"></p>
+
+            <div class="results">
+
+                <h2>Results</h2>
+
+                <div class="outer">
+                    <table id="frequencies">
+                        <tr>
+                            <th>x</th>
+                            <th>frequeny</th>
+                        </tr>
+                    </table>
+
+                    <p>Mean value:</p>
+                    <p id="mean"></p>
+                </div>
+
+            </div>
 
 		</div>
 

@@ -2,7 +2,7 @@
 	text-align: center;
 }
 
-.values {
+.outer {
 	display: inline-block;
 }
 
@@ -14,6 +14,14 @@ marquee {
 	font-size: 24px;
 	font-family: "Comic Sans MS";
 	animation: marquee 6s infinite;
+}
+
+#error {
+	color: red;
+}
+
+.results {
+	display: none;
 }
 
 @keyframes marquee {
