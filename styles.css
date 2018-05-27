@@ -1,0 +1,25 @@
+.container {
+	text-align: center;
+}
+
+.values {
+	display: inline-block;
+}
+
+div {
+	padding: 10px;
+}
+
+marquee {
+	font-size: 24px;
+	font-family: "Comic Sans MS";
+	animation: marquee 6s infinite;
+}
+
+@keyframes marquee {
+	20% { color: red; }
+	40% { color: yellow; }
+	60% { color: green; }
+	80% { color: blue; }
+	100% { color: orange; }
+}
